@@ -9,6 +9,7 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    environment: dev_python_apis
     steps:
     # Downloads the code (clone the code)
       -
@@ -38,7 +39,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKER_NAME }}
-          password: ${{ secrets.SECRET_DOCKEr }}
+          password: ${{ secrets.SECRET_DOCKER }}
       #Build and push to dockerhub
       -
         name: Build and push
