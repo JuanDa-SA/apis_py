@@ -37,8 +37,8 @@ jobs:
         name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ vars.DOCKER_NAME }}
+          password: ${{ secrets.SECRET_DOCKEr }}
       #Build and push to dockerhub
       -
         name: Build and push
@@ -47,5 +47,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/apis_python:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/apis_python:${{ github.sha }}
+            ${{ vars.DOCKER_NAME }}/apis_python:latest
+            ${{ vars.DOCKER_NAME }}/apis_python:${{ github.sha }}
