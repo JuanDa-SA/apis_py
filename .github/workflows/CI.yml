@@ -46,12 +46,25 @@ jobs:
           username: ${{ vars.DOCKER_NAME }}
           password: ${{ secrets.SECRET_DOCKER }}
       #Build and push to dockerhub
-      -
-        name: Build and push
-        uses: docker/build-push-action@v6
+      #Build a local image to test with the scanner
+      - 
+        name: Build Docker image (local)
+        run: |
+          docker build -t ${{ vars.DOCKER_NAME }}/apis_python:ci .
+      #Creating STO best practices, container Scannin
+      - 
+        name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@0.20.0
         with:
-          context: .
-          push: true
-          tags: |
-            ${{ vars.DOCKER_NAME }}/apis_python:latest
-            ${{ vars.DOCKER_NAME }}/apis_python:${{ github.sha }}
+          image-ref: ${{ vars.DOCKER_NAME }}/apis_python:ci
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: 1
+      #Push into Dockerhub with the latest and the sha tags.
+      - 
+        name: Push Docker image
+        run: |
+          docker tag ${{ vars.DOCKER_NAME }}/apis_python:ci ${{ vars.DOCKER_NAME }}/apis_python:latest
+          docker tag ${{ vars.DOCKER_NAME }}/apis_python:ci ${{ vars.DOCKER_NAME }}/apis_python:${{ github.sha }}
+          docker push ${{ vars.DOCKER_NAME }}/apis_python:latest
+          docker push ${{ vars.DOCKER_NAME }}/apis_python:${{ github.sha }}
