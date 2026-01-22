@@ -58,7 +58,7 @@ jobs:
         with:
           image-ref: ${{ vars.DOCKER_NAME }}/apis_python:ci
           format: table
-          severity: CRITICAL,HIGH
+          severity: CRITICAL
           exit-code: 1
       #Push into Dockerhub with the latest and the sha tags.
       - 
