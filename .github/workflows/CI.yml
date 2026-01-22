@@ -7,9 +7,14 @@ on:
       - main
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     environment: dev_python_apis
+    
+    # 🔐 Required to publish SARIF to GitHub Security
+    permissions:
+      contents: read
+      security-events: write
     steps:
     # Downloads the code (clone the code)
       -
@@ -21,6 +26,19 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      # STO - SAST - SEMGREP
+      - 
+        name: Run Semgrep (SARIF)
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: "p/ci, p/python"
+          generateSarif: true
+
+      - 
+        name: Upload Semgrep results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep.sarif
       # Install dependencies
       - 
         name: Install dependencies
