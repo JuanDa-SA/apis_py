@@ -48,6 +48,26 @@ Automated tests are integrated into the CI pipeline and are implemented using
 pytest
 ```
 
+## ⚙️ CI/CD Workflow (GitHub Actions)
+
+This project uses **GitHub Actions** to implement a Continuous Integration (CI)
+pipeline that runs on every push to the main branch. Changes to documentation
+files (such as the README) are excluded from triggering the workflow.
+
+### CI Pipeline Steps
+1. Checkout the repository
+2. Install application dependencies
+3. Run automated tests using **pytest**
+4. Build the Docker image
+5. Scan the container image using **Trivy (Aqua Security)** to identify
+   potential vulnerabilities
+6. Retag and push the Docker image to **Docker Hub**
+
+This workflow ensures that code changes are automatically validated and that
+only tested, scanned, and buildable artifacts are produced. To more information you can go to the path:
+[Click to see the CI stage](.github/workflows/CI.yml)
+
+
 
 
 
