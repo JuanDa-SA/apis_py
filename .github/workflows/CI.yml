@@ -5,16 +5,14 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
 
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: dev_python_apis
     
-    # 🔐 Required to publish SARIF to GitHub Security
-    permissions:
-      contents: read
-      security-events: write
     steps:
     # Downloads the code (clone the code)
       -
