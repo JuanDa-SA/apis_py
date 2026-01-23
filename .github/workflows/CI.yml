@@ -7,6 +7,8 @@ on:
       - main
     paths-ignore:
       - README.md
+      - k8s/**
+      - images/**
 
 jobs:
   build:

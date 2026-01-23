@@ -81,8 +81,64 @@ There are also other platforms that can be used to implement the CD layer, such 
 - **FluxCD** – a pull-based GitOps alternative
 - **Jenkins X** – a Kubernetes-native CI/CD platform
 
+## ☸️ Deploying on Minikube
+
+### Prerequisites
+- Having docker installed locally, if you use a Mac or a Windows I recommend to use Docker Desktop, on the other hand if you are using linux I would prefer something more native.
+- Install minikube or if you prefer the kubernetes from Docker Desktop its also a good option.
+
+### Start Minikube
+```bash
+minikube start
+```
+### Steps to follow to deploy.
+1. Create the yaml files (using vi), in this case you have the yaml files here in the github part, and you can just save it and use the folder k8s. They are on the following path: [Click to see kubernetes resources](k8s/)
+2. After you create the resources (deployment and service you can use the following command):
+```bash
+kubectl -f apply k8s/
+```
+Or
+```bash
+kubectl -f apply deployment.yml
+```
+```bash
+kubectl -f apply service.yml
+```
+3. You can do a quckly check of the services with
+```bash
+kubectl get pods
+```
+```bash
+kubectl get services
+```
+4. Finally, you can use minikube to see your application:
+```bash
+minikube service "name of the service"
+```
+
+## ✅ Results
+
+The following results demonstrate the successful  Service Accessibility, and Kubernetes deployment (minikube).
 
 
+---
+
+### Kubernetes Deployment on Minikube
+The application is successfully deployed on a local Kubernetes cluster using
+Minikube, with all pods running in a healthy state.
+
+![Minikube Service Running](images/minikube-service.png)
+![Minikube Pods Running](images/minikube-pods.png)
+
+
+---
+
+### Service Accessibility
+The service is accessible through the Kubernetes service `minikube service` and responds correctly
+to API requests.
+
+![Service Running](images/service-running-health.png)
+![Service Running](images/service-running-hello.png)
 
 
 
