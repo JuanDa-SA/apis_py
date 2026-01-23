@@ -65,10 +65,9 @@ files (such as the README) are excluded from triggering the workflow.
 
 This workflow ensures that code changes are automatically validated and that
 only tested, scanned, and buildable artifacts are produced.
-```md
 For more details, refer to the CI workflow definition:
 [CI Workflow](.github/workflows/CI.yml)
-```
+
 
 ### Continuous Deployment Notes
 
