@@ -95,14 +95,14 @@ minikube start
 1. Create the yaml files (using vi), in this case you have the yaml files here in the github part, and you can just save it and use the folder k8s. They are on the following path: [Click to see kubernetes resources](k8s/)
 2. After you create the resources (deployment and service you can use the following command):
 ```bash
-kubectl -f apply k8s/
+kubectl apply -f k8s/
 ```
 Or
 ```bash
-kubectl -f apply deployment.yml
+kubectl apply -f deployment.yml
 ```
 ```bash
-kubectl -f apply service.yml
+kubectl apply -f service.yml
 ```
 3. You can do a quckly check of the services with
 ```bash
