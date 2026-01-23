@@ -37,3 +37,26 @@ pip install -r requirements.txt
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+
+## 🧪 Running Tests
+
+Automated tests are integrated into the CI pipeline and are implemented using
+**pytest** to validate the basic functionality of the API.
+
+### Run tests locally
+```bash
+pytest
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
