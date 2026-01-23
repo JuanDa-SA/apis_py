@@ -67,6 +67,24 @@ This workflow ensures that code changes are automatically validated and that
 only tested, scanned, and buildable artifacts are produced. To more information you can go to the path:
 [Click to see the CI stage](.github/workflows/CI.yml)
 
+### Continuous Deployment Notes
+
+While a Continuous Deployment (CD) step could be implemented directly in
+GitHub Actions using a simple `kubectl apply` approach, this project
+intentionally focuses on CI.
+
+For more advanced deployment strategies such as canary, rolling updates, or
+blue-green deployments, a **GitOps-based approach using Argo CD** would be a
+more appropriate and scalable solution.
+
+There are also other platforms that can be used to implement the CD layer, such as:
+- **FluxCD** – a pull-based GitOps alternative
+- **Jenkins X** – a Kubernetes-native CI/CD platform
+
+
+
+
+
 
 
 
