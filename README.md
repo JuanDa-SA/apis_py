@@ -22,3 +22,18 @@ health. The service does not rely on any external databases or third-party servi
 keeping the focus on infrastructure, CI/CD, and deployment workflows.
 
 
+## 🏃 Running the Service Locally
+
+### Prerequisites
+- Python 3.10 or higher
+- pip
+
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Command to start the application
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
