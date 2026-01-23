@@ -64,8 +64,11 @@ files (such as the README) are excluded from triggering the workflow.
 6. Retag and push the Docker image to **Docker Hub**
 
 This workflow ensures that code changes are automatically validated and that
-only tested, scanned, and buildable artifacts are produced. To more information you can go to the path:
-[Click to see the CI stage](.github/workflows/CI.yml)
+only tested, scanned, and buildable artifacts are produced.
+```md
+For more details, refer to the CI workflow definition:
+[CI Workflow](.github/workflows/CI.yml)
+```
 
 ### Continuous Deployment Notes
 
