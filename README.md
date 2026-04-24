@@ -151,7 +151,11 @@ to API requests.
 
 
 
-
+| Nombre   | Edad | Carrera        |
+|----------|------|----------------|
+| Juan     | 21   | Ingeniería     |
+| María    | 22   | Medicina       |
+| Carlos   | 20   | Arquitectura   |
 
 
 
